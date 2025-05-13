@@ -1,0 +1,45 @@
+{
+    "name": "Python Dev Container",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+
+    "runArgs": [
+        "--network=host",
+        "--pid=host",
+        "--privileged",
+		"--platform=linux/amd64"
+    ],
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.pylint",
+				"ms-python.isort",
+				"ms-python.black-formatter",
+				"ms-python.flake8",
+				"yzhang.markdown-all-in-one",
+				"redhat.ansible",
+				"davidanson.vscode-markdownlint",
+				"mechatroner.rainbow-csv",
+				"eugenejeon.codesnap-plus-fix",
+				"github.vscode-github-actions",
+				"eamodio.gitlens",
+			]
+		}
+	},
+
+    "mounts": [
+        "type=bind,source=/Users/${localEnv:USER}/.ssh,target=/home/vscode/.ssh"
+    ],
+
+    "workspaceFolder": "${localWorkspaceFolder}",
+    "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind"
+}
