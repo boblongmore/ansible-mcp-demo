@@ -7,9 +7,5 @@ ansible-pylibssh
 ansible-lint
 pytz
 ipython
-langchain_community
-langchain
-openai
-langgraph
-langsmith
-langchain_anthropic
+fastmcp
+requests
