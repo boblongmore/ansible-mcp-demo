@@ -6,14 +6,14 @@
     provider: "{{ fw01_provider }}"
     gathered_filter: "*"
     state: gathered
-  register: result
+  register: zone_result
 
-- name: Print gathered VR facts - PANOS VM
-  ansible.builtin.debug:
-    msg: "{{ result }}"
-
-
-- name: Set stats with zone info
-  ansible.builtin.set_stats:
-    data:
-      acl_data: "{{ result.gathered }}"
+# - name: Print gathered VR facts - PANOS VM
+#   ansible.builtin.debug:
+#     msg: "{{ zone_result }}"
+#
+#
+# - name: Set stats with zone info
+#   ansible.builtin.set_stats:
+#     data:
+#       acl_data: "{{ zone_result.gathered }}"

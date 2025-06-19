@@ -4,14 +4,14 @@
     provider: "{{ fw01_provider }}"
     gathered_filter: "*"
     state: gathered
-  register: result
+  register: policy_result
 
-- name: Print gathered facts- PANOS VM
-  ansible.builtin.debug:
-    msg: "{{ result }}"
+# - name: Print gathered facts- PANOS VM
+#   ansible.builtin.debug:
+#     msg: "{{ policy_result }}"
 
 
-- name: Set stats with acl info
-  ansible.builtin.set_stats:
-    data:
-      acl_data: "{{ result.gathered }}"
+# - name: Set stats with acl info
+#   ansible.builtin.set_stats:
+#     data:
+#       acl_data: "{{ policy_result.gathered }}"

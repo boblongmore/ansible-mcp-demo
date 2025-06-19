@@ -6,14 +6,14 @@
     name: "{{ vr_name }}"
     gathered_filter: "*"
     state: gathered
-  register: result
+  register: vr_result
 
-- name: Print gathered facts- PANOS VM
-  ansible.builtin.debug:
-    msg: "{{ result }}"
-
-
-- name: Set stats with acl info
-  ansible.builtin.set_stats:
-    data:
-      acl_data: "{{ result.gathered }}"
+# - name: Print gathered facts- PANOS VM
+#   ansible.builtin.debug:
+#     msg: "{{ vr_result }}"
+#
+#
+# - name: Set stats with acl info
+#   ansible.builtin.set_stats:
+#     data:
+#       acl_data: "{{ vr_result.gathered }}"
