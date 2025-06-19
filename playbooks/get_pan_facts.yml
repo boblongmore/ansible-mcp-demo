@@ -6,6 +6,14 @@
   connection: local
 
   tasks:
-    - name: Include role to gather PAN-OS facts
+    - name: Include role to gather PAN-OS facts for policies
       ansible.builtin.include_role:
-        name: get_security_rule
+        name: gather_security_rules
+
+    - name: Include role to gather PAN-OS facts for security zones
+      ansible.builtin.include_role:
+        name: gather_security_zones
+
+    - name: Include role to gather PAN-OS facts for virtual routers
+      ansible.builtin.include_role:
+        name: gather_virtual_router

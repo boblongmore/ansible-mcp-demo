@@ -1,4 +1,4 @@
 fw01_provider:
-  ip_address: 10.236.72.253
+  ip_address: 192.168.2.29
   username: labuser
   password: Labpass01!
