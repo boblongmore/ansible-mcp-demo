@@ -1,17 +1,19 @@
 ---
-- name: Gather Info for PANOS VM security rules
-  paloaltonetworks.panos.panos_security_rule:
+
+- name: Gather Info for PANOS VM virtual router
+  paloaltonetworks.panos.panos_virtual_router:
     provider: "{{ fw01_provider }}"
+    name: "{{ vr_name }}"
     gathered_filter: "*"
     state: gathered
-  register: policy_result
+  register: vr_result
 
 # - name: Print gathered facts- PANOS VM
 #   ansible.builtin.debug:
-#     msg: "{{ policy_result }}"
-
-
+#     msg: "{{ vr_result }}"
+#
+#
 # - name: Set stats with acl info
 #   ansible.builtin.set_stats:
 #     data:
-#       acl_data: "{{ policy_result.gathered }}"
+#       acl_data: "{{ vr_result.gathered }}"

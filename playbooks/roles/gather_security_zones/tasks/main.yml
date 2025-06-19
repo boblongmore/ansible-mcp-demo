@@ -1,0 +1,19 @@
+---
+
+
+- name: Gather Info for PANOS VM zones
+  paloaltonetworks.panos.panos_zone:
+    provider: "{{ fw01_provider }}"
+    gathered_filter: "*"
+    state: gathered
+  register: zone_result
+
+# - name: Print gathered VR facts - PANOS VM
+#   ansible.builtin.debug:
+#     msg: "{{ zone_result }}"
+#
+#
+# - name: Set stats with zone info
+#   ansible.builtin.set_stats:
+#     data:
+#       acl_data: "{{ zone_result.gathered }}"
