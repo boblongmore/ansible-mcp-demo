@@ -1,0 +1,11 @@
+---
+
+- name: Gather facts from network devices
+  hosts: atc_pan_fw01
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Include role to gather PAN-OS facts
+      ansible.builtin.include_role:
+        name: get_security_rule

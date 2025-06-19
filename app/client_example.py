@@ -1,5 +1,5 @@
 import os
-from fastmcp.client import MCPClient
+from fastmcp.client import Client
 import openai
 
 
@@ -19,7 +19,7 @@ def ask_llm_with_context(query, context):
     return response.choices[0].message["content"]
 
 def main():
-    client = MCPClient("http://127.0.0.1:5000")
+    client = Client("http://127.0.0.1:5000")
     query = "What is this about?"
 
     # Ask the server for context
