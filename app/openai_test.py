@@ -43,7 +43,8 @@ async def test_firewall_analysis(
     mock_mcp_client, mock_openai, mock_firewall_rules
 ):
     mock_mcp_client.call_tool.return_value = mock_firewall_rules
-    await main()
+    input_text = "can host 192.168.2.100 reach google.com on port 80"
+    await main(input_text)
     mock_mcp_client.call_tool.assert_called_once_with("acl_audit")
     calls = mock_openai.invoke.call_args_list
     assert len(calls) == 1
@@ -57,7 +58,8 @@ async def test_mcp_client_error(mock_mcp_client):
     mock_mcp_client.call_tool.side_effect = Exception(
         "MCP connection failed"
     )
-    await main()
+    input_text = "can host 192.168.2.100 reach google.com on port 80"
+    await main(input_text)
     mock_mcp_client.call_tool.assert_called_once_with("acl_audit")
 
 
@@ -66,7 +68,8 @@ async def test_input_in_prompt(
     mock_mcp_client, mock_openai, mock_firewall_rules
 ):
     mock_mcp_client.call_tool.return_value = mock_firewall_rules
-    await main()
+    input_text = "can host 192.168.2.100 reach google.com on port 80"
+    await main(input_text)
     calls = mock_openai.invoke.call_args_list
     messages = calls[0][0][0]
     human_message = messages[1].content
